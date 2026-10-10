@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invasiones Extranjeras en México | Producto Digital</title>
+    
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0d1b2a;
+            --primary-light: #1b263b;
+            --accent: #c59b27;
+            --accent-hover: #e0ac2b;
+            --danger: #8b0000;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #212529;
+            --text-muted: #6c757d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        
+        header {
+            background: linear-gradient(135deg, rgba(13, 27, 42, 0.92), rgba(27, 38, 59, 0.88)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Batalla_de_Puebla.jpg/1200px-Batalla_de_Puebla.jpg') center/cover no-repeat;
+            color: white;
+            padding: 4.5rem 1.5rem 3.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-badge {
+            background: rgba(197, 155, 39, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.6rem;
+            margin: 10px 0;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .header-meta {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #e0e6ed;
+        }
+
+        .header-meta span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* NAVEGACIÓN FLOTANTE */
+        nav {
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        nav a {
+            color: #d1d5db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            color: white;
+            background: rgba(197, 155, 39, 0.25);
+        }
+
+        /* CONTENEDOR DE CONTENIDO */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 35px;
+            margin-bottom: 35px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary);
+            font-size: 1.7rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 8px;
+            height: 26px;
+            background: var(--accent);
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .img-banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* TARJETAS DE CAUSAS Y CONSECUENCIAS */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #fdfdfd;
+            border: 1px solid #eef2f6;
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 4px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* TARJETAS DE PERSONAJES */
+        .personajes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .personaje-card {
+            text-align: center;
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 14px;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .personaje-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .personaje-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .personaje-card h4 {
+            margin: 8px 0 4px;
+            color: var(--primary);
+            font-size: 1.05rem;
+        }
+
+        .personaje-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* LÍNEA DEL TIEMPO */
+        .timeline {
+            position: relative;
+            padding: 15px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-left: 55px;
+            margin-bottom: 20px;
+            background: #fdfdfd;
+            border: 1px solid #eef2f6;
+            padding: 16px 20px;
+            border-radius: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -42px;
+            top: 18px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--accent);
+        }
+
+        .timeline-year {
+            font-weight: 700;
+            color: var(--danger);
+            font-size: 1.05rem;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+
+        .timeline-item p {
+            margin: 0;
+        }
+
+        /* CONCLUSIÓN */
+        .conclusion-box {
+            background: linear-gradient(135deg, #1b263b, #0d1b2a);
+            color: white;
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+
+        .conclusion-box h2 {
+            color: var(--accent);
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .conclusion-box p {
+            font-size: 1.02rem;
+            line-height: 1.8;
+            color: #e0e6ed;
+            margin: 0;
+        }
+
+       
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--primary);
+            color: #9ea0a5;
+            font-size: 0.88rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.9rem; }
+            section { padding: 20px; }
+            .img-banner { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+
+  
+    <header>
+        <div class="header-badge">Conciencia Histórica II</div>
+        <h1>Las Invasiones Extranjeras en México</h1>
+        <div class="header-meta">
+            <span><strong>Estudiante:</strong> Cynthia Sánchez Briones</span>
+            <span><strong>Grupo:</strong> 5AVPG</span>
+            <span><strong>Tema:</strong> Invasiones Extranjeras (Siglo XIX)</span>
+        </div>
+    </header>
+
+  
+    <nav>
+        <a href="#contexto">Contexto</a>
+        <a href="#causas">Causas</a>
+        <a href="#desarrollo">Desarrollo</a>
+        <a href="#personajes">Personajes</a>
+        <a href="#consecuencias">Consecuencias</a>
+        <a href="#linea">Línea del Tiempo</a>
+        <a href="#conclusion">Conclusión</a>
+        <a href="#fuentes">Fuentes</a>
+    </nav>
+
+    <div class="container">
+
+       
+        <section id="contexto">
+            <h2>1. Contexto Histórico</h2>
+            <img src="inva.jpg" alt="Entrada del ejército invasor a la Ciudad de México" class="img-banner">
+            <p>Tras lograr su Independencia en 1821, México inició su vida republicana bajo una profunda inestabilidad política, económica y social. Con constantes disputas internas entre liberales y conservadores, las arcas públicas vacías y un ejército debilitado, el país enfrentaba serias dificultades para mantener el control de sus vastos territorios.</p>
+            <p>Esta debilidad interna convirtió al naciente Estado mexicano en un objetivo sumamente vulnerable ante las ambiciones imperialistas y expansionistas de potencias extranjeras como Estados Unidos y Francia durante el siglo XIX.</p>
+        </section>
+
+        <section id="causas">
+            <h2>2. Causas Principales</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Primera Intervención Francesa (1838)</h3>
+                    <p>Reclamaciones económicas desmedidas de ciudadanos franceses por daños a comercios durante revueltas internas (Guerra de los Pasteles) y presiones mercantiles.</p>
+                </div>
+                <div class="card">
+                    <h3>Intervención Estadounidense (1846-1848)</h3>
+                    <p>La doctrina expansionista del "Destino Manifiesto" en EE. UU., la anexión unilateral de Texas en 1845 y las disputas por la frontera en los ríos Nueces y Bravo.</p>
+                </div>
+                <div class="card">
+                    <h3>Segunda Intervención Francesa (1862-1867)</h3>
+                    <p>La suspensión temporal del pago de la deuda externa decretada por el presidente Benito Juárez ante la crisis fiscal, aprovechada por Napoleón III para expandir su imperio.</p>
+                </div>
+            </div>
+        </section>
+
+       
+        <section id="desarrollo">
+            <h2>3. Desarrollo de los Acontecimientos</h2>
+            <p>En 1838, la armada francesa bloqueó el puerto de Veracruz exigiendo indemnizaciones, conflicto que concluyó tras el pago de 600,000 pesos negociado con mediación británica.</p>
+            <p>En 1846 dio inicio la guerra con Estados Unidos. Las tropas enemigas avanzaron por el norte y desembarcaron en Veracruz. Pese a defensas valerosas como la de Churubusco y Chapultepec (1847), la capital fue ocupada y el conflicto terminó con la pérdida de territorio en 1848.</p>
+            <p>En 1862, tropas francesas invadieron el territorio. Aunque México logró una victoria histórica en la Batalla de Puebla el 5 de mayo de 1862, Francia impuso el Segundo Imperio bajo el mandato de Maximiliano de Habsburgo. La resistencia republicana logró vencer definitivamente en 1867, restaurando la soberanía nacional.</p>
+        </section>
+
+      
+        <section id="personajes">
+            <h2>4. Personajes y Grupos Relevantes</h2>
+            <div class="personajes-grid">
+                <div class="personaje-card">
+                    <img src="benito.jpg" alt="Benito Juárez" class="personaje-img">
+                    <h4>Benito Juárez</h4>
+                    <p>Presidente constitucional que encabezó la resistencia republicana y defendió la soberanía de la nación.</p>
+                </div>
+                <div class="personaje-card">
+                    <img src="zaragoza.jpg" alt="Ignacio Zaragoza" class="personaje-img">
+                    <h4>Ignacio Zaragoza</h4>
+                    <p>General al mando del Ejército de Oriente que derrotó a las tropas francesas en Puebla en 1862.</p>
+                </div>
+                <div class="personaje-card">
+                    <img src="Santaanna1.JPG" alt="Antonio López de Santa Anna" class="personaje-img">
+                    <h4>Antonio López de Santa Anna</h4>
+                    <p>General y presidente interino que comandó la defensa militar en los conflictos de 1838 y 1846-1848.</p>
+                </div>
+                <div class="personaje-card">
+                    <img src="maximiliano.jpg" class="personaje-img">
+                    <h4>Maximiliano I</h4>
+                    <p>Archiduque austriaco designado emperador de México respaldado por conservadores y tropas francesas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="consecuencias">
+            <h2>5. Consecuencias</h2>
+            <div class="grid-cards">
+                <div class="card" style="border-top-color: #8b0000;">
+                    <h3>Territoriales</h3>
+                    <p>Pérdida de más del 50% del territorio nacional mediante el Tratado de Guadalupe Hidalgo (1848), cediendo California, Nuevo México, Arizona, Nevada, Utah y partes de Colorado.</p>
+                </div>
+                <div class="card" style="border-top-color: #0d1b2a;">
+                    <h3>Políticas</h3>
+                    <p>Consolidación del proyecto republicano e instituciones liberales tras la caída del Segundo Imperio en 1867, poniendo fin a los intentos monárquicos en México.</p>
+                </div>
+                <div class="card" style="border-top-color: #c59b27;">
+                    <h3>Socioeconómicas</h3>
+                    <p>Devastación de las finanzas públicas, endeudamiento masivo e inestabilidad económica, junto con el fortalecimiento del patriotismo e identidad nacional.</p>
+                </div>
+            </div>
+        </section>
+
+     
+        <section id="linea">
+            <h2>6. Línea del Tiempo</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-year">1838</span>
+                    <p><strong>Primera Intervención Francesa:</strong> Bloqueo del puerto de Veracruz (Guerra de los Pasteles).</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1846</span>
+                    <p><strong>Inicio de la Guerra con EE. UU.:</strong> Declaración formal del conflicto armado.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1847</span>
+                    <p><strong>Defensa de Chapultepec:</strong> Ocupación de la Ciudad de México por el ejército estadounidense.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1848</span>
+                    <p><strong>Tratado de Guadalupe Hidalgo:</strong> Firma que concreta la cesión de territorio mexicano.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1862</span>
+                    <p><strong>Batalla de Puebla (5 de mayo):</strong> Victoria militar del ejército mexicano sobre las fuerzas francesas.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1864</span>
+                    <p><strong>Segundo Imperio Mexicano:</strong> Establecimiento del gobierno de Maximiliano de Habsburgo.</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1867</span>
+                    <p><strong>Restauración de la República:</strong> Derrota definitiva de las tropas intervencionistas y triunfo juarista.</p>
+                </div>
+            </div>
+        </section>
+
+       
+        <section id="conclusion" class="conclusion-box">
+            <h2>7. Conclusión Personal</h2>
+            <p>Estudiar las invasiones extranjeras resulta indispensable para comprender el altísimo costo que tuvo para México consolidarse como una nación libre y soberana. Analizar estos hechos demuestra cómo las divisiones internas e inestabilidades políticas expusieron al país frente a intereses expansionistas. Este aprendizaje nos invita a valorar la defensa de nuestra soberanía, fortalecer nuestras instituciones democráticas y reconocer la importancia de la unidad nacional en nuestro presente.</p>
+        </section>
+
+       
+        <section id="fuentes">
+            <h2>8. Fuentes Consultadas</h2>
+            <ul>
+                <li>Delgado de Cantú, G. M. (2014). <em>Historia de México: Formación del Estado Mexicano</em>. Pearson Educación.</li>
+                <li>Instituto Nacional de Estudios Históricos de las Revoluciones de México (INEHRM). <em>Las intervenciones extranjeras en México</em>. Secretaría de Cultura.</li>
+                <li>Universidad Autonoma del Estado de Mexico (2020).Las invasiones extranjeras</li>
+            </ul>
+        </section>
+
+    </div>
+
+
+    <footer>
+        <p>Cynthia Sánchez Briones | Conciencia Histórica II - CBTis 003</p>
+    </footer>
+
+</body>
+</html>
